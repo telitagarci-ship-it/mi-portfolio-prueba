@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lista de Tareas</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f9;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		.contenedor {
+			background: white;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			width: 300px;
+		}
+
+		h2 {
+			margin-top: 0;
+			text-align: center;
+			color: #333;
+		}
+
+		.formulario {
+			display: flex;
+			gap: 10px;
+			margin-bottom: 20px;
+		}
+
+		input[type="text"] {
+			flex: 1;
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		button {
+			padding: 8px 12px;
+			background-color: #28a745;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #218838;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		li {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 8px;
+			border-bottom: 1px solid #eee;
+		}
+
+		.texto-tarea {
+			cursor: pointer;
+			flex: 1;
+		}
+
+		.completada {
+			text-decoration: line-through;
+			color: gray;
+		}
+
+		.btn-eliminar {
+			background-color: #dc3545;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			padding: 2px 6px;
+			cursor: pointer;
+		}
+
+		.btn-eliminar:hover {
+			background-color: #c82333;
+		}
+	</style>
+</head>
+<body>
+	<div class="contenedor">
+		<h2>Mis Tareas</h2>
+		<div class="formulario">
+			<input type="text" id="input-tarea" placeholder="Nueva tarea...">
+			<button id="btn-agregar">Agregar</button>
+		</div>
+		<ul id="lista-tareas"></ul>
+	</div>
+
+	<script>
+		const inputTarea = document.getElementById('input-tarea');
+		const btnAgregar = document.getElementById('btn-agregar');
+		const listaTareas = document.getElementById('lista-tareas');
+		let arrayTareas = [];
+
+		function renderizarTareas() {
+			listaTareas.innerHTML = '';
+
+			arrayTareas.forEach((tarea, index) => {
+				const li = document.createElement('li');
+				const span = document.createElement('span');
+				span.className = 'texto-tarea';
+				span.textContent = tarea.texto;
+				if (tarea.completada) span.classList.add('completada');
+				span.addEventListener('click', () => marcarCompletada(index));
+
+				const botonEliminar = document.createElement('button');
+				botonEliminar.className = 'btn-eliminar';
+				botonEliminar.textContent = '✕';
+				botonEliminar.addEventListener('click', () => eliminarTarea(index));
+
+				li.append(span, botonEliminar);
+				listaTareas.appendChild(li);
+			});
+		}
+
+		function agregarTarea() {
+			const texto = inputTarea.value.trim();
+			if (!texto) return;
+			arrayTareas.push({ texto, completada: false });
+			inputTarea.value = '';
+			renderizarTareas();
+		}
+
+		function eliminarTarea(index) {
+			arrayTareas.splice(index, 1);
+			renderizarTareas();
+		}
+
+		function marcarCompletada(index) {
+			arrayTareas[index].completada = !arrayTareas[index].completada;
+			renderizarTareas();
+		}
+
+		btnAgregar.addEventListener('click', agregarTarea);
+		inputTarea.addEventListener('keydown', (evento) => {
+			if (evento.key === 'Enter') agregarTarea();
+		});
+	</script>
+</body>
+</html>
