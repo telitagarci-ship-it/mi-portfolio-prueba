@@ -1,14 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Stella Maris García - Desarrolladora Web Front-End en Tandil">
+  <title>Mi Portfolio — Stella García</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h2> "Mis proyectos"</h2>
-    <section>
-        <h2> "Sobre mí"</h2>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">Stella Maris García</a>
+      <ul class="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <button id="toggle-tema" aria-label="Cambiar tema">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="hero-content">
+        <p class="hero-subtitle">Desarrolladora Web Front-End</p>
+        <p class="hero-description">Creo experiencias digitales únicas combinando diseño y tecnología</p>
+        <a href="#contacto" class="btn-cta">Contactame</a>
+      </div>
     </section>
+
+    <section id="sobre-mi" class="section">
+      <div class="container">
+        <h2 class="section-title">Sobre Mí</h2>
+        <div class="sobre-mi-content">
+          <div class="sobre-mi-image">
+            <img src="2026-09-15T09_10_55.jpg" alt="Stella Maris García junto al lago de Tandil en un día soleado" class="profile-img">
+          </div>
+          <div class="sobre-mi-text">
+            <p>¡Hola! Soy <strong>Stella Maris García</strong>, conocida cariñosamente como <strong>Telita</strong>. Tengo una amplia trayectoria en desarrollo web front-end y me apasiona crear sitios web funcionales, accesibles y visualmente atractivos.</p>
+            <p>Vivo en <strong>Tandil</strong>, una ciudad hermosa de la provincia de Buenos Aires, donde combino mi amor por la tecnología con la creatividad. Me especializo en HTML semántico, CSS moderno con Flexbox y Grid, y JavaScript para crear experiencias interactivas.</p>
+            <p>Mi enfoque es siempre aprender algo nuevo cada día y aplicar las mejores prácticas de desarrollo para entregar proyectos de calidad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="section">
+      <div class="container">
+        <h2 class="section-title">Mis Proyectos</h2>
+        <div class="proyectos-grid">
+          
+          <!-- Proyecto 1: Joyería Artesanal -->
+          <article class="tarjeta-proyecto">
+            <div class="proyecto-imagen">
+              <img src="colgante.jpeg" alt="Joyería artesanal en alpaca con diseños únicos hechos a mano">
+            </div>
+            <div class="proyecto-content">
+              <h3>Joyería Artesanal en Alpaca - Tandil</h3>
+              <p>Descubrí el fascinante mundo de la joyería artesanal en Tandil, donde artesanos locales trabajan con alpaca, bronce, cobre y aluminio creando piezas únicas.</p>
+              <ul class="proyecto-details">
+                <li><strong>Talleres:</strong> La Bárbara, Meisis Joyería, Taller Floren Joyas</li>
+                <li><strong>Técnicas:</strong> Engarce, regulación, trabajo artesanal paso a paso</li>
+                <li><strong>Exposiciones:</strong> Muestras en ferias locales y redes sociales</li>
+                <li><strong>ApC:\st\pagina-web\qwen\WhatsApp Image 2026-09-17 at 13.57.31.jpegrendizaje:</strong> Niveles inicial y avanzado disponibles</li>
+              </ul>
+              <a href="#" class="btn-proyecto">Ver Más</a>
+            </div>
+          </article
+
+          <!-- Proyecto 2: Huertos Urbanos -->
+          <article class="tarjeta-proyecto">
+            <div class="proyecto-imagen">
+              <img src="almacigo2.jpg" alt="Huerto urbano con vegetales orgánicos en Tandil">
+            </div>
+            <div class="proyecto-content">
+              <h3>Huertos Urbanos en Tandil</h3>
+              <p>Exploré los huertos urbanos y periurbanos de Tandil, una alternativa sustentable para la producción de alimentos orgánicos en la ciudad.</p>
+              <ul class="proyecto-details">
+                <li><strong>Huarte:</strong> A 14 km del centro. Los Álamos 2224. Abierto fines de semana</li>
+                <li><strong>Los Pinos 288:</strong> Esquina Los Álamos, cerca de Av. Pedersen</li>
+                <li><strong>Municipalidad:</strong> Asesoramiento para huertas agroecológicas</li>
+                <li><strong>Talleres:</strong> Cursos de compost urbano y diseño de huertas</li>
+              </ul>
+              <a href="#" class="btn-proyecto">Ver Más</a>
+            </div>
+          </article>
+
+          <!-- Proyecto 3: Arte Plástico -->
+          <article class="tarjeta-proyecto">
+            <div class="proyecto-imagen">
+              <img src="cuadro.jpg" alt="Museo Municipal de Bellas Artes MUMBAT en Tandil">
+            </div>
+            <div class="proyecto-content">
+              <h3>Estado del Arte Plástico en Tandil</h3>
+              <p>Investué el vibrante panorama del arte plástico en Tandil, desde museos históricos hasta escuelas y exposiciones contemporáneas.</p>
+              <ul class="proyecto-details">
+                <li><strong>MUMBAT:</strong> Museo Municipal de Bellas Artes. Chacabuco 357. Martes a Domingo</li>
+                <li><strong>53° Salón Nacional:</strong> Inscripciones hasta 16 de junio 2026</li>
+                <li><strong>Escuelas Municipales:</strong> Talleres de plástica visual para niños y adultos</li>
+                <li><strong>Exposiciones:</strong> Muestras rotativas con entrada libre y gratuita</li>
+              </ul>
+              <a href="#" class="btn-proyecto">Ver Más</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="habilidades" class="section">
+      <div class="container">
+        <h2 class="section-title">Habilidades</h2>
+        <div class="habilidades-content">
+          <div class="habilidades-tags">
+            <span class="tag">HTML Semántico</span>
+            <span class="tag">CSS Flexbox</span>
+            <span class="tag">CSS Grid</span>
+            <span class="tag">JavaScript DOM</span>
+            <span class="tag">Responsive Design</span>
+            <span class="tag">Git & GitHub</span>
+            <span class="tag">Accesibilidad Web</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <form id="form-contacto" class="contacto-form" novalidate>
+          <div class="form-group">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Correo electrónico *</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="mensaje">Mensaje *</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribí tu mensaje..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-submit">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Stella Maris García. Todos los derechos reservados.</p>
+      <p>Desarrollado con ❤️ en Tandil, Buenos Aires</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
