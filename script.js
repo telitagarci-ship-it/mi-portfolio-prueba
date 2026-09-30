@@ -2,6 +2,37 @@
 const toggleBtn = document.getElementById('toggle-tema');
 const body = document.body;
 
+// ===== COTIZACIÓN DEL DÓLAR =====
+const formatoPesos = new Intl.NumberFormat('es-AR', {
+  style: 'currency',
+  currency: 'ARS',
+  maximumFractionDigits: 2
+});
+
+async function cargarCotizacion() {
+  const estadoCotizacion = document.getElementById('cotizacion-estado');
+
+  try {
+    const respuesta = await fetch('https://dolarapi.com/v1/dolares');
+    if (!respuesta.ok) throw new Error('No se pudo obtener la cotización');
+
+    const cotizaciones = await respuesta.json();
+    ['oficial', 'blue'].forEach(tipo => {
+      const cotizacion = cotizaciones.find(item => item.casa === tipo);
+      if (!cotizacion) return;
+
+      document.getElementById(`${tipo}-compra`).textContent = formatoPesos.format(cotizacion.compra);
+      document.getElementById(`${tipo}-venta`).textContent = formatoPesos.format(cotizacion.venta);
+    });
+
+    estadoCotizacion.textContent = 'Valores de referencia';
+  } catch {
+    estadoCotizacion.textContent = 'No se pudo cargar la cotización';
+  }
+}
+
+cargarCotizacion();
+
 // Cargar preferencia guardada al iniciar
 if (localStorage.getItem('tema') === 'oscuro') {
   body.classList.add('dark-mode');

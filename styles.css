@@ -166,6 +166,69 @@ header {
   gap: var(--espaciado-md);
 }
 
+.cotizacion-card {
+  width: min(100%, 640px);
+  padding: var(--espaciado-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaciado-sm);
+  text-align: left;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-top: 4px solid var(--color-primario);
+  border-radius: 0.75rem;
+  box-shadow: var(--sombra-media);
+}
+
+.cotizacion-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--espaciado-xs);
+}
+
+.cotizacion-encabezado h2 {
+  color: var(--color-secundario);
+  font-size: 1.1rem;
+}
+
+.cotizacion-encabezado p {
+  color: var(--color-texto-claro);
+  font-size: 0.85rem;
+}
+
+.cotizacion-valores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaciado-md);
+}
+
+.cotizacion-tipo {
+  flex: 1 1 180px;
+  padding-left: var(--espaciado-sm);
+  border-left: 2px solid var(--color-borde);
+}
+
+.cotizacion-tipo h3 {
+  margin-bottom: var(--espaciado-xs);
+  color: var(--color-primario-oscuro);
+  font-size: 0.95rem;
+}
+
+.cotizacion-tipo p {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espaciado-sm);
+  color: var(--color-texto-claro);
+  font-size: 0.9rem;
+}
+
+.cotizacion-tipo strong {
+  color: var(--color-texto);
+  font-variant-numeric: tabular-nums;
+}
+
 #hero h1 {
   font-family: var(--font-titulos);
   font-size: clamp(2.5rem, 5vw, 4rem);
