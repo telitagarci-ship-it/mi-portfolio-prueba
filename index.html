@@ -18,6 +18,7 @@
       <ul class="nav-links">
         <li><a href="#sobre-mi">Sobre mí</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#recursos">Recursos</a></li>
         <li><a href="#habilidades">Habilidades</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
@@ -39,7 +40,7 @@
         <h2 class="section-title">Sobre Mí</h2>
         <div class="sobre-mi-content">
           <div class="sobre-mi-image">
-            <img src="2026-09-15T09_10_55.jpg" alt="Stella Maris García junto al lago de Tandil en un día soleado" class="profile-img">
+            <img src="img/2026-09-15T09_10_55.jpg" alt="Stella Maris García junto al lago de Tandil en un día soleado" class="profile-img">
           </div>
           <div class="sobre-mi-text">
             <p>¡Hola! Soy <strong>Stella Maris García</strong>, conocida cariñosamente como <strong>Telita</strong>. Tengo una amplia trayectoria en desarrollo web front-end y me apasiona crear sitios web funcionales, accesibles y visualmente atractivos.</p>
@@ -76,7 +77,7 @@
           <!-- Proyecto 2: Huertos Urbanos -->
           <article class="tarjeta-proyecto">
             <div class="proyecto-imagen">
-              <img src="almacigo2.jpg" alt="Huerto urbano con vegetales orgánicos en Tandil">
+              <img src="img/almacigo2.jpg" alt="Huerto urbano con vegetales orgánicos en Tandil">
             </div>
             <div class="proyecto-content">
               <h3>Huertos Urbanos en Tandil</h3>
@@ -94,7 +95,7 @@
           <!-- Proyecto 3: Arte Plástico -->
           <article class="tarjeta-proyecto">
             <div class="proyecto-imagen">
-              <img src="cuadro.jpg" alt="Museo Municipal de Bellas Artes MUMBAT en Tandil">
+              <img src="img/cuadro.jpg" alt="Museo Municipal de Bellas Artes MUMBAT en Tandil">
             </div>
             <div class="proyecto-content">
               <h3>Estado del Arte Plástico en Tandil</h3>
@@ -109,6 +110,79 @@
             </div>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos" class="section">
+      <div class="container">
+        <h2 class="section-title">Recursos para disfrutar Tandil y Argentina</h2>
+        <p class="section-intro">
+          Información útil, actualizada y pensada para tomar mejores decisiones todos los días.
+        </p>
+        <div class="recursos-grid">
+          <article class="recurso-card recurso-card-live">
+            <span class="recurso-icon" aria-hidden="true">💵</span>
+            <div class="recurso-content">
+              <span class="recurso-badge">Actualización automática</span>
+              <h3>Cotización del dólar</h3>
+              <p>Valor del dólar oficial en Argentina, consultado en tiempo real.</p>
+              <div class="recurso-data" id="dolar-data" aria-live="polite">Cargando cotización...</div>
+              <small class="recurso-updated" id="dolar-updated"></small>
+            </div>
+          </article>
+
+          <article class="recurso-card recurso-card-live">
+            <span class="recurso-icon" aria-hidden="true">🌤️</span>
+            <div class="recurso-content">
+              <span class="recurso-badge">Tandil, Buenos Aires</span>
+              <h3>Clima de hoy</h3>
+              <p>Temperatura y condiciones actuales para planificar tu día.</p>
+              <div class="recurso-data" id="clima-data" aria-live="polite">Cargando clima...</div>
+              <small class="recurso-updated" id="clima-updated"></small>
+            </div>
+          </article>
+
+          <article class="recurso-card">
+            <span class="recurso-icon" aria-hidden="true">🧭</span>
+            <div class="recurso-content">
+              <span class="recurso-badge">Guía local</span>
+              <h3>Qué hacer en Tandil siendo jubilado</h3>
+              <p>Ideas para disfrutar la ciudad con tranquilidad, accesibilidad y bajo presupuesto.</p>
+              <ul class="recurso-list">
+                <li>Paseos por el Lago del Fuerte y parques.</li>
+                <li>Museos, ferias y actividades culturales.</li>
+                <li>Caminatas grupales y talleres municipales.</li>
+              </ul>
+              <a href="https://www.tandil.gov.ar/" class="recurso-link" target="_blank" rel="noopener">Ver agenda municipal ↗</a>
+            </div>
+          </article>
+
+          <article class="recurso-card">
+            <span class="recurso-icon" aria-hidden="true">✈️</span>
+            <div class="recurso-content">
+              <span class="recurso-badge recurso-badge-pending">Próximamente</span>
+              <h3>Vuelos económicos para jubilados</h3>
+              <p>La tarjeta queda preparada para mostrar ofertas reales dentro de Argentina.</p>
+              <p class="recurso-note">La conexión requiere una clave de una API de vuelos, como Amadeus, para evitar publicar precios inventados.</p>
+              <a href="#contacto" class="recurso-link">Avisarme cuando esté disponible →</a>
+            </div>
+          </article>
+
+          <article class="recurso-card">
+            <span class="recurso-icon" aria-hidden="true">🥗</span>
+            <div class="recurso-content">
+              <span class="recurso-badge">Bienestar</span>
+              <h3>¿Qué es la alimentación saludable?</h3>
+              <p>Una alimentación saludable combina variedad, equilibrio y alimentos poco procesados.</p>
+              <ul class="recurso-list">
+                <li>Incluí frutas, verduras, legumbres y cereales integrales.</li>
+                <li>Priorizá agua y moderá el consumo de sal y azúcar.</li>
+                <li>Consultá a un profesional para necesidades específicas.</li>
+              </ul>
+              <a href="https://www.argentina.gob.ar/salud/alimentacion-saludable" class="recurso-link" target="_blank" rel="noopener">Guía oficial de salud ↗</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -155,10 +229,36 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <p>© 2026 Stella Maris García. Todos los derechos reservados.</p>
-      <p>Desarrollado con ❤️ en Tandil, Buenos Aires</p>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">Stella Maris García</a>
+        <p>
+          Desarrolladora Front-End enfocada en crear experiencias web
+          accesibles, funcionales y atractivas.
+        </p>
+      </div>
+
+      <nav class="footer-links" aria-label="Enlaces del pie de página">
+        <h2>Explorar</h2>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="footer-contact">
+        <h2>¿Trabajamos juntos?</h2>
+        <p>Contame tu idea y conversemos sobre tu próximo proyecto.</p>
+        <a href="#contacto" class="footer-cta">Escribime</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="current-year">2026</span> Stella Maris García. Todos los derechos reservados.</p>
+      <p>Hecho con ❤️ en Tandil, Buenos Aires</p>
+      <a href="#" class="back-to-top">Volver arriba ↑</a>
     </div>
   </footer>
 

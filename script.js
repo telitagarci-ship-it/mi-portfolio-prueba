@@ -2,6 +2,12 @@
 const toggleBtn = document.getElementById('toggle-tema');
 const body = document.body;
 
+// Mantener actualizado el año del copyright
+const currentYear = document.getElementById('current-year');
+if (currentYear) {
+  currentYear.textContent = new Date().getFullYear();
+}
+
 // Cargar preferencia guardada al iniciar
 if (localStorage.getItem('tema') === 'oscuro') {
   body.classList.add('dark-mode');
@@ -177,6 +183,70 @@ function validarCampo(campo) {
     campo.style.borderColor = '';
   }
 }
+
+// ===== DATOS EN TIEMPO REAL =====
+const dolarData = document.getElementById('dolar-data');
+const dolarUpdated = document.getElementById('dolar-updated');
+const climaData = document.getElementById('clima-data');
+const climaUpdated = document.getElementById('clima-updated');
+
+function mostrarError(elemento, mensaje) {
+  if (elemento) {
+    elemento.textContent = mensaje;
+    elemento.classList.add('data-error');
+  }
+}
+
+async function cargarDolar() {
+  try {
+    const respuesta = await fetch('https://dolarapi.com/v1/dolares/oficial');
+    if (!respuesta.ok) throw new Error('No se pudo consultar la cotización');
+    const dolar = await respuesta.json();
+    dolarData.textContent = `Compra: $${dolar.compra.toLocaleString('es-AR')} · Venta: $${dolar.venta.toLocaleString('es-AR')}`;
+    dolarUpdated.textContent = `Actualizado: ${new Date(dolar.fechaActualizacion).toLocaleString('es-AR')}`;
+  } catch (error) {
+    mostrarError(dolarData, 'La cotización no está disponible en este momento.');
+    console.error('Error al cargar la cotización:', error);
+  }
+}
+
+async function cargarClima() {
+  try {
+    const parametros = new URLSearchParams({
+      latitude: '-37.3217',
+      longitude: '-59.1332',
+      current: 'temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m',
+      timezone: 'America/Argentina/Buenos_Aires'
+    });
+    const respuesta = await fetch(`https://api.open-meteo.com/v1/forecast?${parametros}`);
+    if (!respuesta.ok) throw new Error('No se pudo consultar el clima');
+    const clima = await respuesta.json();
+    const codigo = clima.current.weather_code;
+    const condiciones = {
+      0: 'Despejado',
+      1: 'Mayormente despejado',
+      2: 'Parcialmente nublado',
+      3: 'Nublado',
+      45: 'Niebla',
+      48: 'Niebla con escarcha',
+      51: 'Llovizna',
+      61: 'Lluvia',
+      71: 'Nevada',
+      80: 'Chaparrones',
+      95: 'Tormenta'
+    };
+    climaData.textContent = `${clima.current.temperature_2m} °C · ${condiciones[codigo] || 'Condiciones variables'}`;
+    climaUpdated.textContent = `Humedad ${clima.current.relative_humidity_2m}% · Viento ${clima.current.wind_speed_10m} km/h`;
+  } catch (error) {
+    mostrarError(climaData, 'El clima no está disponible en este momento.');
+    console.error('Error al cargar el clima:', error);
+  }
+}
+
+cargarDolar();
+cargarClima();
+setInterval(cargarDolar, 5 * 60 * 1000);
+setInterval(cargarClima, 5 * 60 * 1000);
 
 // ===== MENSAJE DE BIENVENIDA EN CONSOLA =====
 console.log('%c👋 ¡Hola!', 'font-size: 24px; font-weight: bold; color: #10b981;');
