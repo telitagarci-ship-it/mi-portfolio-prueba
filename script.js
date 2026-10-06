@@ -2,36 +2,38 @@
 const toggleBtn = document.getElementById('toggle-tema');
 const body = document.body;
 
-// ===== COTIZACIÓN DEL DÓLAR =====
-const formatoPesos = new Intl.NumberFormat('es-AR', {
-  style: 'currency',
-  currency: 'ARS',
-  maximumFractionDigits: 2
-});
+// ===== COTIZACIÓN DEL DÓLAR BLUE =====
+const compraDolar = document.getElementById('cotizacion-compra');
+const ventaDolar = document.getElementById('cotizacion-venta');
+const actualizacionDolar = document.getElementById('cotizacion-actualizacion');
 
-async function cargarCotizacion() {
-  const estadoCotizacion = document.getElementById('cotizacion-estado');
-
-  try {
-    const respuesta = await fetch('https://dolarapi.com/v1/dolares');
-    if (!respuesta.ok) throw new Error('No se pudo obtener la cotización');
-
-    const cotizaciones = await respuesta.json();
-    ['oficial', 'blue'].forEach(tipo => {
-      const cotizacion = cotizaciones.find(item => item.casa === tipo);
-      if (!cotizacion) return;
-
-      document.getElementById(`${tipo}-compra`).textContent = formatoPesos.format(cotizacion.compra);
-      document.getElementById(`${tipo}-venta`).textContent = formatoPesos.format(cotizacion.venta);
+fetch('https://dolarapi.com/v1/dolares/blue')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('No se pudo consultar la cotización');
+    }
+    return response.json();
+  })
+  .then(cotizacion => {
+    const formatoPesos = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+      maximumFractionDigits: 2
     });
 
-    estadoCotizacion.textContent = 'Valores de referencia';
-  } catch {
-    estadoCotizacion.textContent = 'No se pudo cargar la cotización';
-  }
-}
+    compraDolar.textContent = formatoPesos.format(cotizacion.compra);
+    ventaDolar.textContent = formatoPesos.format(cotizacion.venta);
 
-cargarCotizacion();
+    const fecha = new Date(cotizacion.fechaActualizacion);
+    actualizacionDolar.textContent = Number.isNaN(fecha.getTime())
+      ? 'Cotización actualizada desde DolarAPI'
+      : `Actualizado: ${fecha.toLocaleString('es-AR')}`;
+  })
+  .catch(() => {
+    compraDolar.textContent = 'No disponible';
+    ventaDolar.textContent = 'No disponible';
+    actualizacionDolar.textContent = 'No se pudo cargar la cotización. Probá de nuevo más tarde.';
+  });
 
 // Cargar preferencia guardada al iniciar
 if (localStorage.getItem('tema') === 'oscuro') {

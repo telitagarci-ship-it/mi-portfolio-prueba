@@ -166,69 +166,6 @@ header {
   gap: var(--espaciado-md);
 }
 
-.cotizacion-card {
-  width: min(100%, 640px);
-  padding: var(--espaciado-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--espaciado-sm);
-  text-align: left;
-  background-color: var(--color-fondo);
-  border: 1px solid var(--color-borde);
-  border-top: 4px solid var(--color-primario);
-  border-radius: 0.75rem;
-  box-shadow: var(--sombra-media);
-}
-
-.cotizacion-encabezado {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: var(--espaciado-xs);
-}
-
-.cotizacion-encabezado h2 {
-  color: var(--color-secundario);
-  font-size: 1.1rem;
-}
-
-.cotizacion-encabezado p {
-  color: var(--color-texto-claro);
-  font-size: 0.85rem;
-}
-
-.cotizacion-valores {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--espaciado-md);
-}
-
-.cotizacion-tipo {
-  flex: 1 1 180px;
-  padding-left: var(--espaciado-sm);
-  border-left: 2px solid var(--color-borde);
-}
-
-.cotizacion-tipo h3 {
-  margin-bottom: var(--espaciado-xs);
-  color: var(--color-primario-oscuro);
-  font-size: 0.95rem;
-}
-
-.cotizacion-tipo p {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--espaciado-sm);
-  color: var(--color-texto-claro);
-  font-size: 0.9rem;
-}
-
-.cotizacion-tipo strong {
-  color: var(--color-texto);
-  font-variant-numeric: tabular-nums;
-}
-
 #hero h1 {
   font-family: var(--font-titulos);
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -265,6 +202,72 @@ header {
   background-color: var(--color-primario-oscuro);
   transform: translateY(-3px);
   box-shadow: var(--sombra-fuerte);
+}
+
+/* ===== COTIZACIÓN DEL DÓLAR ===== */
+.cotizacion-card {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: var(--espaciado-lg);
+  background-color: var(--color-fondo-alt);
+  border: 1px solid var(--color-borde);
+  border-top: 4px solid var(--color-primario);
+  border-radius: 0.5rem;
+  box-shadow: var(--sombra-media);
+}
+
+.cotizacion-card-header,
+.cotizacion-valores {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espaciado-md);
+}
+
+.cotizacion-card-header h3 {
+  color: var(--color-secundario);
+  font-family: var(--font-titulos);
+  font-size: 1.5rem;
+}
+
+.cotizacion-etiqueta,
+.cotizacion-actualizacion {
+  color: var(--color-texto-claro);
+  font-size: 0.9rem;
+}
+
+.cotizacion-moneda {
+  color: var(--color-primario-oscuro);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.cotizacion-valores {
+  margin: var(--espaciado-md) 0;
+  padding: var(--espaciado-md) 0;
+  border-top: 1px solid var(--color-borde);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.cotizacion-valor {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--espaciado-xs);
+}
+
+.cotizacion-valor + .cotizacion-valor {
+  padding-left: var(--espaciado-md);
+  border-left: 1px solid var(--color-borde);
+}
+
+.cotizacion-valor span {
+  color: var(--color-texto-claro);
+}
+
+.cotizacion-valor strong {
+  color: var(--color-secundario);
+  font-size: 1.5rem;
 }
 
 /* ===== SECCIONES GENERALES ===== */
@@ -599,6 +602,14 @@ footer p {
   
   .contacto-form {
     padding: var(--espaciado-md);
+  }
+
+  .cotizacion-card {
+    padding: var(--espaciado-md);
+  }
+
+  .cotizacion-valor strong {
+    font-size: 1.25rem;
   }
   
   .tag {
