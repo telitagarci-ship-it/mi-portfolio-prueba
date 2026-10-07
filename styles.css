@@ -1,7 +1,7 @@
 /* ===== VARIABLES CSS ===== */
 :root {
   /* Colores - Modo Claro */
-  --color-primario: #10b981; /* Verde esmeralda */
+  --color-primario: #10b981;
   --color-primario-oscuro: #059669;
   --color-secundario: #1e293b;
   --color-fondo: #ffffff;
@@ -528,7 +528,6 @@ footer p {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
-
 /* Tablet */
 @media (max-width: 768px) {
   .navbar {

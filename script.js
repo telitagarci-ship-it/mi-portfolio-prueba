@@ -48,7 +48,7 @@ toggleBtn.addEventListener('click', () => {
   const esOscuro = body.classList.contains('dark-mode');
   
   // Actualizar icono y atributo aria
-  toggleBtn.textContent = esOscuro ? '☀️' : '';
+  toggleBtn.textContent = esOscuro ? '☀️' : '🌙';
   toggleBtn.setAttribute('aria-label', esOscuro ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
   
   // Guardar preferencia en localStorage
@@ -127,9 +127,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         top: offsetPosition,
         behavior: 'smooth'
       });
-      
-      // Cerrar menú en móvil si está abierto (opcional)
-      // Aquí podrías agregar lógica para cerrar un menú hamburguesa
     }
   });
 });
@@ -175,7 +172,7 @@ document.querySelectorAll('.section').forEach(section => {
   observer.observe(section);
 });
 
-// ===== VALIDACIÓN EN TIEMPO REAL (OPCIONAL) =====
+// ===== VALIDACIÓN EN TIEMPO REAL =====
 const inputs = form.querySelectorAll('input, textarea');
 
 inputs.forEach(input => {
